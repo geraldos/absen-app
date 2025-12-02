@@ -59,10 +59,15 @@ function App() {
           className="flex flex-col items-center gap-3"
         >
           <input
-            type="number"
+            type="text"
             placeholder="Input REG number"
             value={manualValue}
-            onChange={(e) => setManualValue(e.target.value)}
+            onChange={(e) => {
+              const v = e.target.value;
+              if (/^\d*$/.test(v)) {
+                setManualValue(v);
+              }
+            }}
             className="w-40 py-2 px-3 border border-slate-300 rounded-xl bg-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
 
